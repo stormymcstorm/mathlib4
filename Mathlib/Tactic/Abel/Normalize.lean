@@ -1,5 +1,6 @@
 import Mathlib.Tactic.Abel.Atoms
 import Lean.Meta.SynthInstance
+import Lean.Elab.Tactic
 
 def nth {A : Type u} [Zero A] : ℕ → List A → A
 | _,   []   => 0
@@ -9,13 +10,6 @@ def nth {A : Type u} [Zero A] : ℕ → List A → A
 open Lean Meta Lean.Elab.Term
 
 namespace Abel
-#print inferType
-#print Level
-#print Level.Data
-
-def X : ℕ := 0
-
-#eval inferType (mkApp (mkConst ``List.nil [levelZero]) (mkConst ``X))
 
 structure Cache : Type :=
 (G : Expr)
