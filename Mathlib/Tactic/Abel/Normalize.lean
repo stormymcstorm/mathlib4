@@ -2,11 +2,6 @@ import Mathlib.Tactic.Abel.Atoms
 import Lean.Meta.SynthInstance
 import Lean.Elab.Tactic
 
-def nth {A : Type u} [Zero A] : ℕ → List A → A
-| _,   []   => 0
-| 0,   a::l => a
-| n+1, a::l => nth n l
-
 open Lean Meta Lean.Elab.Term
 
 namespace Abel
@@ -37,7 +32,7 @@ lemma normalizeLemma {A : Type u} [AddCommGroup A]
   (f : FreeAbelianGroup)
   (a : A)
   (l : List A)
-  (hga : g.eval AddMonoid.nsmul AddGroup.gsmul l = a)
+  (hga : g.eval AddMonoid.nsmul SubNegMonoid.gsmul l = a)
   (hgf : g.evalF = f) : a = f.eval l := sorry
 
 /--Takes an `Expr` and returns a normalized `Expr` and a proof
@@ -68,5 +63,11 @@ let proof : Expr :=
     (← mkEqRefl e)
     (← mkEqRefl fe)
 return (proof, newTerm)
+#print withMVarContext
+/-
+  NOTES: Goal management: Look at file Leab/Elab/Tactic/Basic
+
+
+-/
 
 end Abel
