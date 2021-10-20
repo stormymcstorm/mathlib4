@@ -37,6 +37,10 @@ import Mathlib.Tactic.Core
 import Mathlib.Tactic.Ext
 import Mathlib.Tactic.Find
 import Mathlib.Tactic.LibrarySearch
+import Mathlib.Tactic.Micromega.Basic
+import Mathlib.Tactic.Micromega.Certificate
+import Mathlib.Tactic.Micromega.Polynomial
+import Mathlib.Tactic.Micromega.Tactic
 import Mathlib.Tactic.NoMatch
 import Mathlib.Tactic.NormNum
 import Mathlib.Tactic.OpenPrivate
