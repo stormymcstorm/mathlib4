@@ -1,0 +1,22 @@
+// For format details, see https://aka.ms/devcontainer.json.
+
+{
+	"name": "Lean",
+
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": "..",
+
+		"args": {
+			"USERNAME": "vscode",
+		},
+	},
+
+	"remoteUser": "vscode",
+
+	"extensions": [
+		"leanprover.lean4"
+	],
+
+	"settings": {},
+}
